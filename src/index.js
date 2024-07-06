@@ -7,17 +7,17 @@ const dockerHub = "https://registry-1.docker.io";
 
 const routes = {
   // production
-  "docker.libcuda.so": dockerHub,
-  "quay.libcuda.so": "https://quay.io",
-  "gcr.libcuda.so": "https://gcr.io",
-  "k8s-gcr.libcuda.so": "https://k8s.gcr.io",
-  "k8s.libcuda.so": "https://registry.k8s.io",
-  "ghcr.libcuda.so": "https://ghcr.io",
-  "cloudsmith.libcuda.so": "https://docker.cloudsmith.io",
-  "ecr.libcuda.so": "https://public.ecr.aws",
+  "dk.hurl.live": dockerHub,
+  //"quay.libcuda.so": "https://quay.io",
+  //"gcr.libcuda.so": "https://gcr.io",
+  //"k8s-gcr.libcuda.so": "https://k8s.gcr.io",
+  //"k8s.libcuda.so": "https://registry.k8s.io",
+  //"ghcr.libcuda.so": "https://ghcr.io",
+  //"cloudsmith.libcuda.so": "https://docker.cloudsmith.io",
+  //"ecr.libcuda.so": "https://public.ecr.aws",
 
   // staging
-  "docker-staging.libcuda.so": dockerHub,
+  //"docker-staging.libcuda.so": dockerHub,
 };
 
 function routeByHosts(host) {
@@ -36,7 +36,9 @@ async function handleRequest(request) {
   if (upstream === "") {
     return new Response(
       JSON.stringify({
-        routes: routes,
+        status: success,
+        code: 200,
+        //routes: routes,
       }),
       {
         status: 404,
